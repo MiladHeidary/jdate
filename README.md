@@ -1,3 +1,19 @@
-#jdate 
+#jdate in lua 
 
-کتاب خانه jdate برای لوا
+local jdate = require 'jdate'
+
+--parameters :
+
+  -- #Y  --> سال
+  -- #M  --> ماه
+  -- #D  --> روز
+  -- #h  --> ساعت
+  -- #m  --> دقیقه
+  -- #s  --> ثانیه
+  -- #x  --> نام روز
+  -- #X  --> نام ماه
+  -- #F  --> نام فصل
+
+print(jadte('parameters',unix))
+
+--unix optional
