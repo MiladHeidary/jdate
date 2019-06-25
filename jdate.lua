@@ -32,9 +32,9 @@ local config = {
     'زمستان'
   },
   zekr = {
-  [0] = ' یا رَبَّ الْعالَمین',
+  [0] = 'یا رَبَّ الْعالَمین',
     'یا ذَالْجَلالِ وَالْاِکْرام',
-    ' یا قاضِیَ الْحاجات',
+    'یا قاضِیَ الْحاجات',
     'یا اَرْحَمَ الرّاحِمین',
     'یا حَیُّ یا قَیّوم',
     'لا اِلهَ اِلّا اللهُ الْمَلِکُ الْحَقُّ الْمُبین',
@@ -47,7 +47,7 @@ local config = {
     'میمون',
     'خروس',
     'سگ',
-    ' خوک',
+    'خوک',
     'موش',
     'گاو',
     'ببر',
@@ -63,7 +63,7 @@ unix = unix % 3600
 local mins = math.floor(unix/60)
 secs = math.floor(unix % 60)
 local day_name = config.days[days%7]
-local zekr = config.days[zekr%7]
+local zekr = config.zekr[days%7]
 function in_table(table,input)
   for k,v in pairs(table) do
     if v == input then
@@ -116,17 +116,17 @@ if day > 31 then
   end
 end
 if str then
-  local value = string.gsub(str,'%%','#')
-  local value = string.gsub(value,'#Y',year)
-  local value = string.gsub(value,'#M',mont)
-  local value = string.gsub(value,'#D',day)
-  local value = string.gsub(value,'#h',hours)
-  local value = string.gsub(value,'#m',mins)
-  local value = string.gsub(value,'#s',secs)
-  local value = string.gsub(value,'#X',config.mont[mont])
-  local value = string.gsub(value,'#x',day_name)
-  local value = string.gsub(value,'#F',config.seasons[math.floor((mont-1)/3)+1])
-  local value = string.gsub(value,'#y',config.year_name[year%12])
+  value = string.gsub(str,'%%','#')
+  value = string.gsub(value,'#Y',year)
+  value = string.gsub(value,'#M',mont)
+  value = string.gsub(value,'#D',day)
+  value = string.gsub(value,'#h',hours)
+  value = string.gsub(value,'#m',mins)
+  value = string.gsub(value,'#s',secs)
+  value = string.gsub(value,'#X',config.mont[mont])
+  value = string.gsub(value,'#x',day_name)
+  value = string.gsub(value,'#F',config.seasons[math.floor((mont-1)/3)+1])
+  value = string.gsub(value,'#y',config.year_name[year%12])
   value = string.gsub(value,'#z',zekr)
 else
   value = [[
@@ -154,3 +154,4 @@ end
 return value
 end
 return jdate
+
